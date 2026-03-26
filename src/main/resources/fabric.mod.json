@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "flintiron",
+	"version": "${version}",
+	"name": "Flintiron",
+	"description": "Gameplay mod by gulp2028",
+	"authors": [
+		"gulp2028"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/flintiron/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"flintiron.Flintiron"
+		],
+		"fabric-datagen": [
+			"flintiron.FlintironDataGenerator"
+		],
+		"client": [
+			"flintiron.flintironclient"
+		]
+	},
+	"mixins": [
+		"flintiron.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
