@@ -19,12 +19,10 @@ public class ModBlocks {
             Identifier.of(Flintiron.MOD_ID, "flintstone"),
             new Block(AbstractBlock.Settings.create().strength(3.5f).requiresTool())
     );
-
     public static final Item FLINTSTONE_ITEM = Registry.register(
-            Registries.ITEM,
-            Identifier.of(Flintiron.MOD_ID, "flintstone"),
-            new BlockItem(FLINTSTONE, new Item.Settings())
-    );
+            Registries.ITEM
+            Identifier.of(Flintiron.MOD_ID)
+    )
 
     public static final Block FLINTSTONE_BLOCK = Registry.register(
             Registries.BLOCK,
@@ -32,11 +30,7 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool())
     );
 
-    public static final Item FLINTSTONE_BLOCK_ITEM = Registry.register(
-            Registries.ITEM,
-            Identifier.of(Flintiron.MOD_ID, "flintstone_block"),
-            new BlockItem(FLINTSTONE_BLOCK, new Item.Settings())
-    );
+
 
     public static void registerModBlocks() {
     }

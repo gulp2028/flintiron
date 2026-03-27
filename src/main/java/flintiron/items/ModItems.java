@@ -1,25 +1,28 @@
 package flintiron.items;
 
 import flintiron.Flintiron;
+import flintiron.blocks.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
 import java.util.function.Function;
 
-import static flintiron.blocks.ModBlocks.*;
+import flintiron.blocks.ModBlocks;
 
 public class ModItems {
 
     public static Item registerItem(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {
         final RegistryKey<Item> registerKey =
                 RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Flintiron.MOD_ID, name));
+        return Registry.register(Registries.ITEM, Identifier.of(Flintiron.MOD_ID, name), factory.apply(settings));
 
-        return Items.register(registerKey, factory, settings);
     }
     public static final Item CRUDE_POWDER = registerItem("crude_powder", Item::new, new Item.Settings());
     public static final Item COPPER_CARTRIDGE = registerItem("copper_cartridge", Item::new, new Item.Settings());
@@ -47,12 +50,10 @@ public class ModItems {
 
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
-            content.add(FLINTSTONE_ITEM);
+            content.add(ModBlocks.FLINTSTONE_ITEM);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(content -> {
-            content.add(FLINTSTONE_BLOCK_ITEM);
-        });
+
 
 
     }}
