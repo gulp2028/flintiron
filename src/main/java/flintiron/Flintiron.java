@@ -9,16 +9,13 @@ import org.slf4j.LoggerFactory;
 public class Flintiron implements ModInitializer {
 
 	public static final String MOD_ID = "flintiron";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
 	public void onInitialize() {
-
-		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModItems.registerModItems();
+
 
 	}
 
-	public class LOGGER {
-	}
 }

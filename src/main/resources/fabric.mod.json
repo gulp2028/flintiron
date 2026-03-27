@@ -22,7 +22,7 @@
 			"flintiron.FlintironDataGenerator"
 		],
 		"client": [
-			"flintiron.flintironclient"
+			"flintiron.FlintironClient"
 		]
 	},
 	"mixins": [

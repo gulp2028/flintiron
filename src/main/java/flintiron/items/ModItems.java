@@ -1,9 +1,7 @@
 package flintiron.items;
 
 import flintiron.Flintiron;
-import flintiron.blocks.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
@@ -12,6 +10,8 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
 import java.util.function.Function;
+
+import static flintiron.blocks.ModBlocks.*;
 
 public class ModItems {
 
@@ -25,18 +25,17 @@ public class ModItems {
     public static final Item COPPER_CARTRIDGE = registerItem("copper_cartridge", Item::new, new Item.Settings());
     public static final Item IRON_CARTRIDGE = registerItem("iron_cartridge", Item::new, new Item.Settings());
     public static final Item GOLD_CARTRIDGE = registerItem("gold_cartridge", Item::new, new Item.Settings());
-    public static final Item FLINTIRON_CARTRIDGE = registerItem("flintiron_cartridge", Item::new, new Item.Settings());
-    public static final Item FLINTIRON = registerItem("Flintiron", Item::new, new Item.Settings());
-    public static final Item RAW_FLINTIRON = registerItem("Raw_Flintiron", Item::new, new Item.Settings());
+    public static final Item FLINTSTONE_CARTRIDGE = registerItem("flintstone_cartridge", Item::new, new Item.Settings());
+    public static final Item FLINTSTONE_INGOT = registerItem("flintstone_ingot", Item::new, new Item.Settings());
+    public static final Item RAW_FLINTSTONE = registerItem("raw_flintiron", Item::new, new Item.Settings());
 
 
 
     public static void registerModItems() {
 
-        ItemGroupEvents.modifyEntriesEvent((ItemGroups.FUNCTIONAL)).register(content-> {
-            content.add(FLINTIRON);
+        ItemGroupEvents.modifyEntriesEvent((ItemGroups.FUNCTIONAL)).register(content -> {
+            content.add(FLINTSTONE_INGOT);
             content.add(CRUDE_POWDER);
-            content.add(ModBlocks.FLINTSTONE_ITEM);
 
 
         });
@@ -44,9 +43,16 @@ public class ModItems {
             content.add(COPPER_CARTRIDGE);
             content.add(IRON_CARTRIDGE);
             content.add(GOLD_CARTRIDGE);
-            content.add(FLINTIRON_CARTRIDGE);
+            content.add(FLINTSTONE_CARTRIDGE);
 
         });
-}}
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
+            content.add(FLINTSTONE_ITEM);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(content -> {
+            content.add(FLINTSTONE_BLOCK_ITEM);
+        });
 
 
+    }}
