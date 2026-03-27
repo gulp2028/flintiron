@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "flintiron:crude_powder"
+    "model": "flintiron:item/crude_powder"
   }
 }

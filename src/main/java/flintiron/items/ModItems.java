@@ -48,7 +48,7 @@ public class ModItems {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
-            content.add(ModBlocks.FLINTSTONE_ITEM);
+            content.add(ModBlocks.FLINTSTONE_ORE);
         });
     }
 }

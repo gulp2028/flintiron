@@ -1,22 +1,21 @@
 package flintiron.blocks;
 
 import flintiron.Flintiron;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.*;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
 
-    public static final Block FLINTSTONE = registerBlock("flintstone", 3.5f);
-    public static final Item FLINTSTONE_ITEM = registerBlockItem("flintstone", FLINTSTONE);
+    public static final Block FLINTSTONE_ORE = registerBlock("flintstone_ore", 3.5f);
 
 
-    private static Block registerBlock(String name, float strength) {
-        Identifier id = Identifier.of(Flintiron.MOD_ID, name);
-        RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, id);
+    private static Block registerBlock
 
         return Registry.register(
                 Registries.BLOCK,
@@ -39,6 +38,8 @@ public class ModBlocks {
                         .registryKey(key))
         );
     }
+
+
 
     public static void registerModBlocks() {}
 }
