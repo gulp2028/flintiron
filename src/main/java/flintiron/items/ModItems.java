@@ -30,7 +30,9 @@ public class ModItems {
     public static final Item GOLD_CARTRIDGE = registerItem("gold_cartridge", Item::new);
     public static final Item FLINTSTONE_CARTRIDGE = registerItem("flintstone_cartridge", Item::new);
     public static final Item FLINTSTONE_INGOT = registerItem("flintstone_ingot", Item::new);
-    public static final Item RAW_FLINTSTONE = registerItem("raw_flintstone", Item::new); // fixed name
+    public static final Item RAW_FLINTSTONE = registerItem("raw_flintstone", Item::new);
+    public static final Item MUSKET = registerItem("musket", Item::new);
+
 
 
     public static void registerModItems() {
@@ -45,10 +47,12 @@ public class ModItems {
             content.add(IRON_CARTRIDGE);
             content.add(GOLD_CARTRIDGE);
             content.add(FLINTSTONE_CARTRIDGE);
+            content.add(MUSKET);
         });
-
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
             content.add(ModBlocks.FLINTSTONE_ORE);
         });
+
+
     }
 }
