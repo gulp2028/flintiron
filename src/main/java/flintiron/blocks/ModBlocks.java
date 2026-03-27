@@ -1,41 +1,46 @@
 package flintiron.blocks;
 
-
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.BlockItem;
 import flintiron.Flintiron;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.registry.*;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
 
-    public static final Block FLINTSTONE = Registry.register(
-            Registries.BLOCK,
-            Identifier.of(Flintiron.MOD_ID, "flintstone"),
-            new Block(AbstractBlock.Settings.create().strength(3.5f).requiresTool())
-    );
-    public static final Item FLINTSTONE_ITEM = Registry.register(
-            Registries.ITEM
-            Identifier.of(Flintiron.MOD_ID)
-    )
-
-    public static final Block FLINTSTONE_BLOCK = Registry.register(
-            Registries.BLOCK,
-            Identifier.of(Flintiron.MOD_ID, "flintstone_block"),
-            new Block(AbstractBlock.Settings.create().strength(3.0f).requiresTool())
-    );
+    public static final Block FLINTSTONE = registerBlock("flintstone", 3.5f);
+    public static final Item FLINTSTONE_ITEM = registerBlockItem("flintstone", FLINTSTONE);
 
 
+    private static Block registerBlock(String name, float strength) {
+        Identifier id = Identifier.of(Flintiron.MOD_ID, name);
+        RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, id);
 
-    public static void registerModBlocks() {
+        return Registry.register(
+                Registries.BLOCK,
+                id,
+                new Block(AbstractBlock.Settings.create()
+                        .registryKey(key)
+                        .strength(strength)
+                        .requiresTool())
+        );
     }
 
+    private static Item registerBlockItem(String name, Block block) {
+        Identifier id = Identifier.of(Flintiron.MOD_ID, name);
+        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, id);
 
+        return Registry.register(
+                Registries.ITEM,
+                id,
+                new BlockItem(block, new Item.Settings()
+                        .registryKey(key))
+        );
+    }
+
+    public static void registerModBlocks() {}
 }
 
 
