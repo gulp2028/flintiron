@@ -1,7 +1,5 @@
 {
   "variants": {
-    "": {
-      "model": "flintiron:block/flintstone_ore"
-    }
+    "": { "model": "flintiron:block/flintstone_ore"}
   }
 }

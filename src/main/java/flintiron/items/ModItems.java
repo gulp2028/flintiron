@@ -50,7 +50,7 @@ public class ModItems {
             content.add(MUSKET);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
-            content.add(ModBlocks.FLINTSTONE_ORE);
+            content.add(ModBlocks.FLINTSTONE_ITEM_ORE);
         });
 
 
